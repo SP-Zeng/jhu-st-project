@@ -1,7 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { OrderhistoryComponent } from './orderhistory.component';
-import { ngxCsv } from 'ngx-csv/ngx-csv';
+import { ApiService } from '../api.service';
+import { of } from 'rxjs';
+
+class ApiServiceStub {
+
+  orderhistory() {
+    return of([]);
+  }
+
+}
 
 describe('OrderhistoryComponent', () => {
   let component: OrderhistoryComponent;
@@ -9,9 +17,11 @@ describe('OrderhistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OrderhistoryComponent ]
-    })
-    .compileComponents();
+      declarations: [OrderhistoryComponent],
+      providers: [
+        { provide: ApiService, useClass: ApiServiceStub },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -23,4 +33,12 @@ describe('OrderhistoryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have an empty list initially', () => {
+    expect(component.list.length).toBe(0);
+  });
+
+
+
 });
+

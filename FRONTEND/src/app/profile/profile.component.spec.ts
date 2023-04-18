@@ -1,6 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProfileComponent } from './profile.component';
+import { ApiService } from '../api.service';
+import { of } from 'rxjs';
+
+class ApiServiceStub {
+  getcustomerdetails() {
+    return of({ data: {} });
+  }
+}
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -8,9 +15,11 @@ describe('ProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfileComponent ]
-    })
-    .compileComponents();
+      declarations: [ProfileComponent],
+      providers: [
+        { provide: ApiService, useClass: ApiServiceStub },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -22,4 +31,10 @@ describe('ProfileComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have an empty uinfo initially', () => {
+    expect(component.uinfo).toEqual({});
+  });
+
+
 });
