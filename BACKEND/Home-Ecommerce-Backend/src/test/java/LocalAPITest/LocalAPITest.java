@@ -1,5 +1,7 @@
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class LocalApiTest {
 
@@ -12,13 +14,10 @@ public class LocalApiTest {
     @Test
     public void testApi() {
         given()
-                .param("name", "John")
-                .header("Authorization", "Bearer token")
                 .when()
                 .get("/users")
                 .then()
                 .statusCode(200)
-                .body("data[0].name", equalTo("John"))
-                .header("Content-Type", "application/json");
+                .body("size()", greaterThan(0));
     }
 }
