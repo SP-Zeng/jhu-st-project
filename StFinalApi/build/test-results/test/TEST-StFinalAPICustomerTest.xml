@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="StFinalAPICustomerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-04-19T01:42:13" hostname="DESKTOP-S06IP8J" time="1.177">
+  <properties/>
+  <testcase name="testCustomerAPIDeleteCat()" classname="StFinalAPICustomerTest" time="1.177"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

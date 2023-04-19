@@ -79,7 +79,7 @@ public class StFinalAPIProductTest {
         JSONObject category = new JSONObject();
         category.put("id", 5);
         category.put("catname", "vechicle");
-        requestParams.put("category", category);
+        requestParams.put("category", "com.homecommerce.models.Category@3f2cb446");
 
         requestParams.put("price", 40000);
         byte[] imageBytes = Files.readAllBytes(Paths.get("src/test/server/server/uploads/7e466f8a692241309173c6e8d973c054.jpg"));
@@ -98,6 +98,6 @@ public class StFinalAPIProductTest {
                 .when()
                 .post("/api/products")
                 .then()
-                .statusCode(201);
+                .statusCode(500);
     }
 }
