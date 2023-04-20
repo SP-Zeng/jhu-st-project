@@ -8,6 +8,7 @@ import static org.hamcrest.Matchers.*;
 
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -92,12 +93,18 @@ public class StFinalAPIProductTest {
 
 
          given()
-                .contentType(ContentType.JSON)
-                .body(jsonArray.toString())
+                .contentType("multipart/form-data")
+                 .multiPart("id", 2)
+                 .multiPart("pname", "Benz C400")
+                 .multiPart("descr", "Car")
+                 .multiPart("category", "{ \"id\": 1, \"catname\": \"vechicle\"}")
+                 .multiPart("price", 30000)
+                 .multiPart("photo", new File("src/test/server/server/uploads/7e466f8a692241309173c6e8d973c054.jpg"))
+//                .body(jsonArray.toString())
                 .baseUri(url)
                 .when()
                 .post("/api/products")
                 .then()
-                .statusCode(500);
+                .statusCode(201);
     }
 }
