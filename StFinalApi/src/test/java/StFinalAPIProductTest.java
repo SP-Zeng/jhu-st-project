@@ -67,44 +67,61 @@ public class StFinalAPIProductTest {
 
     /*
     Create a new post by sending a http POST request to /posts endpoint with this info
-    Then Check if the post is successful. However, if I send post request I am not able to do that using rest assured,
-    which is a bug for the backend connection as well. The status return <500> instead of <201>
+    Then Check if the post is successful.
      */
     @Test
     public void testProductAPIPost() throws IOException {
-        JSONObject requestParams = new JSONObject();
-        requestParams.put("id", 5);
-        requestParams.put("pname", "Benz C400");
-        requestParams.put("descr", "Car");
-
-        JSONObject category = new JSONObject();
-        category.put("id", 5);
-        category.put("catname", "vechicle");
-        requestParams.put("category", "com.homecommerce.models.Category@3f2cb446");
-
-        requestParams.put("price", 40000);
-        byte[] imageBytes = Files.readAllBytes(Paths.get("src/test/server/server/uploads/7e466f8a692241309173c6e8d973c054.jpg"));
-        String base64Image = Base64.getEncoder().encodeToString(imageBytes);
-
-        requestParams.put("photo", base64Image);
-
-        JSONArray jsonArray = new JSONArray();
-        jsonArray.put(requestParams);
-
-
          given()
                 .contentType("multipart/form-data")
                  .multiPart("id", 2)
                  .multiPart("pname", "Benz C400")
                  .multiPart("descr", "Car")
-                 .multiPart("category", "{ \"id\": 1, \"catname\": \"vechicle\"}")
+                 .multiPart("category", 21)
                  .multiPart("price", 30000)
-                 .multiPart("photo", new File("src/test/server/server/uploads/7e466f8a692241309173c6e8d973c054.jpg"))
-//                .body(jsonArray.toString())
+                 .multiPart("pic", new File("src/test/server/server/uploads/7e466f8a692241309173c6e8d973c054.jpg"))
                 .baseUri(url)
                 .when()
                 .post("/api/products")
                 .then()
-                .statusCode(201);
+                .statusCode(200)
+                 .body("pname", hasItem("Benz C400"));
+    }
+
+
+    /*
+    Test the put function for the categories api. It is not working due to the authorization issue
+     */
+    @Test
+    public void testCategoriesAPIPutCat(){
+        given()
+                .contentType("multipart/form-data")
+                .multiPart("id", 2)
+                .multiPart("pname", "Benz C400")
+                .multiPart("descr", "Car")
+                .multiPart("category", 21)
+                .multiPart("price", 30000)
+                .multiPart("pic", new File("src/test/server/server/uploads/7e466f8a692241309173c6e8d973c054.jpg"))
+                .baseUri(url)
+                .when()
+                .put("/api/categories")
+                .then()
+                .assertThat()
+                .statusCode(405);
+    }
+
+
+
+    /*
+    Test the delete function for the categories api. It is not working due to the authorization issue
+     */
+    @Test
+    public void testProductsAPIDeleteCat(){
+        given()
+                .contentType(ContentType.JSON)
+                .baseUri(url)
+                .when()
+                .delete("/api/products")
+                .then()
+                .statusCode(405);
     }
 }

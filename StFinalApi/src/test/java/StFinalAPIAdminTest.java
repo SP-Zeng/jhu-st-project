@@ -19,7 +19,7 @@ public class StFinalAPIAdminTest {
     Due to the authorization issue, it should return status code <405> because it is not allow to use get
      */
     @Test
-    public void testProductAPIItem(){
+    public void testAdminAPIItem(){
         given()
                 .baseUri(url)
                 .when()
