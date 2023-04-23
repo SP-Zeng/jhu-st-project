@@ -1,0 +1,1 @@
+{"uuid":"68f5f2ea-63cd-4bad-8a52-19c9bcbf3a1e","name":"GuiTest","children":["7ab6515f-2183-4e53-acdf-dc2d27c7924b"],"befores":[{"name":"setUpAll","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1682274675863,"stop":1682274675876}],"afters":[],"start":1682274675832,"stop":1682274680367}
