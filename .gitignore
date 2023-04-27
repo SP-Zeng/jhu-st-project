@@ -1,4 +1,6 @@
-
 BACKEND/Home-Ecommerce-Backend/src/main/resources/application.properties
 BACKEND/SpringBoot-Backend/src/main/resources/application.properties
 *.properties
+*.DS_Store
+Home-Ecommerce-Backend/out/
+BACKEND/Home-Ecommerce-Backend/out/
