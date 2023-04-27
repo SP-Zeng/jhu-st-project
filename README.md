@@ -1,8 +1,5 @@
 ## CS422 Software Testing & Debugging Final Project
-**Title: Testing Proposal for Shopping app**
-
 **Team members: Johnny Saldana, Shaopeng Zeng, Yujian He**
-
 ## How to Run The Program
 
 Start the backend server before the frontend client.  
