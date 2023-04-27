@@ -20,7 +20,7 @@ import com.homecommerce.utils.StorageService;
 @Controller
 public class FileController {
 	@Autowired
-	private StorageService storageService;
+	StorageService storageService;
 
 	@RequestMapping(value="/{fileName}", produces = "image/*")
 	public void download(@PathVariable("fileName") String fileName, HttpServletResponse resp) {
