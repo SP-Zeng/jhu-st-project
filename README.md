@@ -27,12 +27,33 @@ Start the backend server before the frontend client.
   5. The frontend client is running on [localhost:4200]().
 
 **Tests**
-  1. JUnit for Whitebox unit and integration testing
-  2. JUnit for Blackbox unit and integration testing
+  1. JUnit for Whitebox unit and integration testing on the Backend
+  2. API BlackBox Testing on the Backend
   3. GUI Testing on the Frontend
-  4. API testing on the Backend
-  5. Load testing on the Backend
-  6. Angular unit testing
+  4. Load testing on the Backend
+  5. Angular unit testing
+  
+## How to Run The Tests
+
+Start the program before running any tests. 
+
+**JUnit for Whitebox unit and integration testing**
+1. cd BACKEND/Home-Ecommerce-Board
+
+**API BlackBox Testing on the Backend**
+1.
+
+**GUI Testing on the Frontend**
+1.
+
+**API testing on the Backend**
+1.
+
+**Load testing on the Backend**
+1.
+
+**Angular unit testing**
+1.
 
 
 # Online Shop Application
