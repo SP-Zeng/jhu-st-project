@@ -1,3 +1,34 @@
+## CS422 Software Testing & Debugging Final Project Proposal
+
+**Title: Testing Proposal for Shopping app**
+
+**Team members: Johnny Saldana, Shaopeng Zeng, Yujian He**
+
+## How to Run The Program
+
+Start the backend server before the frontend client.  
+
+**Backend**
+
+  1. Install [MYSQL](https://www.mysql.org/download/) 
+  2. Configure MYSQL database credentials in `BACKEND\Home-Ecommerce-Backend\src\main\resources\application.properties`. Spring Boot will import mock data into database by executing `import.sql` automatically.
+  3. `cd BACKEND`.
+  4. Run `mvn install`.
+  5. Run `mvn spring-boot:run`.
+  6. `cd Home-Ecommerce-Backend`
+  7. Run `mvn spring-boot:run`.
+  8. `cd SpringBoot-Backend`
+  9. Run `mvn spring-boot:run`.
+  10. The backend server is running on [localhost:8080]().
+
+**Frontend**
+  1. Install [Node.js and npm](https://www.npmjs.com/get-npm)
+  2. `cd frontend`.
+  3. Run `npm install`.
+  4. Run `ng serve`
+  5. The frontend client is running on [localhost:4200]().
+
+
 # Online Shop Application
 
 #### Problem Statement
@@ -109,26 +140,3 @@ To achieve this you need to create a Eureka Server application and add the below
       <br>
  ---------
 
-## How to Run The Program
-
-Start the backend server before the frontend client.  
-
-**Backend**
-
-  1. Install [MYSQL](https://www.mysql.org/download/) 
-  2. Configure MYSQL database credentials in `BACKEND\Home-Ecommerce-Backend\src\main\resources\application.properties`. Spring Boot will import mock data into database by executing `import.sql` automatically.
-  3. `cd BACKEND`.
-  4. Run `mvn install`.
-  5. Run `mvn spring-boot:run`.
-  6. `cd Home-Ecommerce-Backend`
-  7. Run `mvn spring-boot:run`.
-  8. `cd SpringBoot-Backend`
-  9. Run `mvn spring-boot:run`.
-  10. The backend server is running on [localhost:8080]().
-
-**Frontend**
-  1. Install [Node.js and npm](https://www.npmjs.com/get-npm)
-  2. `cd frontend`.
-  3. Run `npm install`.
-  4. Run `ng serve`
-  5. The frontend client is running on [localhost:4200]().
