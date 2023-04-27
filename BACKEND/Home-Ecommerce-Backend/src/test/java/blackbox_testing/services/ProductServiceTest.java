@@ -156,9 +156,6 @@ public class ProductServiceTest {
 
     List<Product> result = service.categoryProducts(catid);
 
-    assertNull(result);
+    assertEquals(result.size(), 0);
   }
 }
-
-
-
