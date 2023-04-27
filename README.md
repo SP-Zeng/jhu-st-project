@@ -31,11 +31,12 @@ Start the backend server before the frontend client.
 
 **Tests**
   1. JUnit for Whitebox unit on the Backend
-  and Integration testing on the Backend in `\BACKEND\Home-Ecommerce-Backend\src\test\java\com\homecommerce\models`
-  2. API Testing on the Backend in `\GUItesting\src\test\java`
-  3. GUI Testing on  the Backend in `\ApiTesting\src\test\java`
-  4. Load testing on the Backend in `\LoadTesting\st-final-project-load-testing.jmx`
-  5. Angular unit testing in `\FRONTEND\src\app` (all files end with ".spec.ts")
+  and Integration testing on the Backend in `\BACKEND\Home-Ecommerce-Backend\src\test\java\com\homecommerce\*`
+  2. JUnit for Blackbox unit on the Backend Services (DTOs and Models are all an Entity classes to model the databases so it's not tested and Controllers are endpoints tested in the API testing) in `\BACKEND\Home-Ecommerce-Backend\src\test\java\blackbox_testing\services\`
+  3. API Testing on the Backend in `\GUItesting\src\test\java`
+  4. GUI Testing on  the Backend in `\ApiTesting\src\test\java`
+  5. Load testing on the Backend in `\LoadTesting\st-final-project-load-testing.jmx` This load testing is based on [Jemeter GUI mode](https://jmeter.apache.org/), download the Jemeter, and move st-final-project-load-testing.jmx into `apache-jmeter-5.5\bin` and open the .jmx file in the Jemeter GUI.
+  6. Angular unit testing in `\FRONTEND\src\app` (all files end with ".spec.ts")
 
 
 **Faults after testing**
@@ -90,27 +91,6 @@ Start the backend server before the frontend client.
 
 
   
-<!-- ## How to Run The Tests
-
-Start the program before running any tests. 
-
-**JUnit for Whitebox unit and integration testing**
-1. cd BACKEND/Home-Ecommerce-Board
-
-**API BlackBox Testing on the Backend**
-1.
-
-**GUI Testing on the Frontend**
-1.
-
-**API testing on the Backend**
-1.
-
-**Load testing on the Backend**
-1.
-
-**Angular unit testing**
-1. -->
 
 
 # Online Shop Application
