@@ -1,5 +1,4 @@
-## CS422 Software Testing & Debugging Final Project Proposal
-
+## CS422 Software Testing & Debugging Final Project
 **Title: Testing Proposal for Shopping app**
 
 **Team members: Johnny Saldana, Shaopeng Zeng, Yujian He**
