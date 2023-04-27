@@ -139,15 +139,15 @@ public class GuiTestAdmin {
 //        System.out.println("Image file path: " + imagePath1);
 
         //add new image
-        $(By.xpath("/html/body/app-root/app-products/div[1]/div/div[2]/form/div[5]/input")).click();
+//        $(By.xpath("/html/body/app-root/app-products/div[1]/div/div[2]/form/div[5]/input")).click();
 //        File fileToUpload = new File("src/test/java/35b7338ddf9c4e4296cd4eaaf4258dd7.jpg");
 //        String fileInputSelector = "/html/body/app-root/app-products/div[1]/div/div[2]/form/div[5]/input";
 //        $(fileInputSelector).uploadFile(fileToUpload);
-        String imagePath = "src/test/java/35b7338ddf9c4e4296cd4eaaf4258dd7.jpg";
-        actions().sendKeys(imagePath).perform();
+//        String imagePath = "src/test/java/35b7338ddf9c4e4296cd4eaaf4258dd7.jpg";
+//        actions().sendKeys(imagePath).perform();
 
         //add button
-        $(By.xpath("/html/body/app-root/app-products/div[1]/div/div[2]/form/input")).click();
+//        $(By.xpath("/html/body/app-root/app-products/div[1]/div/div[2]/form/input")).click();
     }
 
     /*
