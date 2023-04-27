@@ -1,5 +1,7 @@
 ## CS422 Software Testing & Debugging Final Project
+
 **Team members: Johnny Saldana, Shaopeng Zeng, Yujian He**
+
 ## How to Run The Program
 
 Start the backend server before the frontend client.  
@@ -23,6 +25,14 @@ Start the backend server before the frontend client.
   3. Run `npm install`.
   4. Run `ng serve`
   5. The frontend client is running on [localhost:4200]().
+
+**Tests**
+  1. JUnit for Whitebox unit and integration testing
+  2. JUnit for Blackbox unit and integration testing
+  3. GUI Testing on the Frontend
+  4. API testing on the Backend
+  5. Load testing on the Backend
+  6. Angular unit testing
 
 
 # Online Shop Application
