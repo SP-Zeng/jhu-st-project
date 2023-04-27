@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { EmailComponent } from './email.component';
 
 describe('EmailComponent', () => {
@@ -8,9 +8,9 @@ describe('EmailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmailComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule],
+      declarations: [EmailComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -22,4 +22,13 @@ describe('EmailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have an empty dataset initially', () => {
+    expect(component.dataset.name).toBe('');
+    expect(component.dataset.age).toBeNull();
+    expect(component.dataset.country).toBe('');
+    expect(component.dataset.email).toBe('');
+  });
+
+
 });
