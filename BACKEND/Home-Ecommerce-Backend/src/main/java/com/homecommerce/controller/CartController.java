@@ -22,7 +22,7 @@ import com.homecommerce.services.CartService;
 @RequestMapping("/api/cart")
 public class CartController {
 
-	@Autowired private CartService service;
+	@Autowired CartService service;
 	
 	@PostMapping
 	public ResponseEntity<?> saveItem(@RequestBody Cart wl) {

@@ -10,8 +10,12 @@ import com.homecommerce.repos.AdminRepository;
 
 @Service
 public class AdminService {
-	
-	@Autowired AdminRepository dao;
+
+	private AdminRepository dao;
+
+	public AdminService(AdminRepository dao) {
+		this.dao = dao;
+	}
 
 	public Admin validate(String userid, String pwd) {
 		Optional<Admin> admin=dao.findById(userid);

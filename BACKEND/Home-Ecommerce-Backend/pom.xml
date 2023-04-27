@@ -18,7 +18,7 @@
 		<spring-cloud.version>2021.0.3</spring-cloud.version>
 	</properties>
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -88,6 +88,18 @@
 						<goals>
 							<goal>report</goal>
 						</goals>
+                        <configuration>
+                            <includes>
+                                <include>src/main/test/**</include>
+                            </includes>
+                            <!-- Generate coverage reports for both passed and failed tests -->
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/generated/**</exclude>
+                            </excludes>
+					</configuration>
 					</execution>
 				</executions>
 			</plugin>

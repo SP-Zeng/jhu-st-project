@@ -22,7 +22,7 @@ import com.homecommerce.services.CategoryService;
 @RequestMapping("/api/categories")
 public class CategoryController {
 
-	@Autowired private CategoryService cservice;
+	@Autowired CategoryService cservice;
 	
 	@PostMapping
 	public ResponseEntity<?> saveCategory(@RequestBody Category cat) {
