@@ -106,12 +106,7 @@
                                 <include>src/main/test/**</include>
                             </includes>
                             <!-- Generate coverage reports for both passed and failed tests -->
-                            <includes>
-                                <include>**/*</include>
-                            </includes>
-                            <excludes>
-                                <exclude>**/generated/**</exclude>
-                            </excludes>
+
 					</configuration>
 					</execution>
 				</executions>
