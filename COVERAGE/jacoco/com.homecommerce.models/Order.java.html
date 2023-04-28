@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Order.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Ecommerce-Backend</a> &gt; <a href="index.source.html" class="el_package">com.homecommerce.models</a> &gt; <span class="el_source">Order.java</span></div><h1>Order.java</h1><pre class="source lang-java linenums">package com.homecommerce.models;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+@Entity
+@Table(name=&quot;orders&quot;)
+public class Order {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int orderid;
+	private LocalDate orderDate;
+	@ManyToOne
+	@JoinColumn(name=&quot;customerId&quot;)
+	private Customer customer;
+	@ManyToOne
+	@JoinColumn(name=&quot;addressId&quot;)
+	private Address address;
+	@ManyToOne
+	@JoinColumn(name=&quot;paymentId&quot;)
+	private Payment payment;
+	private String paymethod;
+	private String status;
+	
+	@OneToMany(mappedBy = &quot;order&quot; , fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List&lt;OrderDetails&gt; orderdetails;
+	
+<span class="fc" id="L42">	public Order() {</span>
+<span class="fc" id="L43">		this.orderDate=LocalDate.now();</span>
+<span class="fc" id="L44">		this.status=&quot;Pending&quot;;</span>
+<span class="fc" id="L45">		this.paymethod=&quot;By Card&quot;;</span>
+<span class="fc" id="L46">	}</span>
+	
+	public List&lt;OrderDetails&gt; getOrderdetails() {
+<span class="fc" id="L49">		return orderdetails;</span>
+	}
+
+	public void setOrderdetails(List&lt;OrderDetails&gt; orderdetails) {
+<span class="fc" id="L53">		this.orderdetails = orderdetails;</span>
+<span class="fc" id="L54">	}</span>
+
+	public String getStatus() {
+<span class="fc" id="L57">		return status;</span>
+	}
+	public void setStatus(String status) {
+<span class="fc" id="L60">		this.status = status;</span>
+<span class="fc" id="L61">	}</span>
+	public String getPaymethod() {
+<span class="fc" id="L63">		return paymethod;</span>
+	}
+	public void setPaymethod(String paymethod) {
+<span class="fc" id="L66">		this.paymethod = paymethod;</span>
+<span class="fc" id="L67">	}</span>
+	public Address getAddress() {
+<span class="fc" id="L69">		return address;</span>
+	}
+	public void setAddress(Address address) {
+<span class="fc" id="L72">		this.address = address;</span>
+<span class="fc" id="L73">	}</span>
+	public Payment getPayment() {
+<span class="fc" id="L75">		return payment;</span>
+	}
+	public void setPayment(Payment payment) {
+<span class="fc" id="L78">		this.payment = payment;</span>
+<span class="fc" id="L79">	}</span>
+	public int getOrderid() {
+<span class="fc" id="L81">		return orderid;</span>
+	}
+	public void setOrderid(int orderid) {
+<span class="fc" id="L84">		this.orderid = orderid;</span>
+<span class="fc" id="L85">	}</span>
+	
+	public LocalDate getOrderDate() {
+<span class="fc" id="L88">		return orderDate;</span>
+	}
+
+	public void setOrderDate(LocalDate orderDate) {
+<span class="fc" id="L92">		this.orderDate = orderDate;</span>
+<span class="fc" id="L93">	}</span>
+
+	public Customer getCustomer() {
+<span class="fc" id="L96">		return customer;</span>
+	}
+	public void setCustomer(Customer customer) {
+<span class="fc" id="L99">		this.customer = customer;</span>
+<span class="fc" id="L100">	}</span>
+	@Override
+	public String toString() {
+<span class="fc" id="L103">		return &quot;Order [orderid=&quot; + orderid + &quot;, orderDate=&quot; + orderDate + &quot;, customer=&quot; + customer + &quot;]&quot;;</span>
+	}
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

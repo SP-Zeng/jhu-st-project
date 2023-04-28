@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomerService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Ecommerce-Backend</a> &gt; <a href="index.source.html" class="el_package">com.homecommerce.services</a> &gt; <span class="el_source">CustomerService.java</span></div><h1>CustomerService.java</h1><pre class="source lang-java linenums">package com.homecommerce.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.homecommerce.models.Customer;
+import com.homecommerce.repos.CustomerRepository;
+
+@Service
+<span class="fc" id="L12">public class CustomerService {</span>
+	@Autowired private CustomerRepository dao;
+
+	
+	public void registerCustomer(Customer cust) {
+<span class="fc" id="L17">		dao.save(cust);</span>
+<span class="fc" id="L18">	}</span>
+
+	
+	public List&lt;Customer&gt; allCustomers() {
+<span class="fc" id="L22">		return dao.findAll();</span>
+	}
+
+	
+	public Customer findById(int id) {
+<span class="fc" id="L27">		return dao.findById(id).orElse(null);</span>
+	}
+
+	
+	public Customer validate(String userid, String pwd) {
+<span class="fc" id="L32">		Customer cc=dao.findByUserid(userid);</span>
+<span class="pc bpc" id="L33" title="1 of 4 branches missed.">		if(cc!=null &amp;&amp; cc.getPwd().equals(pwd)) {</span>
+<span class="fc" id="L34">			return cc;</span>
+		}
+<span class="fc" id="L36">		return null;</span>
+	}
+	
+	
+	public boolean verifyUserId(String userid) {
+<span class="fc bfc" id="L41" title="All 2 branches covered.">		return dao.findByUserid(userid)!=null;</span>
+	}
+
+	
+	public void updateProfile(Customer cust) {
+<span class="pc bpc" id="L46" title="1 of 4 branches missed.">		if(cust.getPwd().equals(&quot;&quot;) || cust.getPwd()==null) {</span>
+<span class="fc" id="L47">			cust.setPwd(findById(cust.getId()).getPwd());</span>
+		}
+<span class="fc" id="L49">		dao.save(cust);	</span>
+<span class="fc" id="L50">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

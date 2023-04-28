@@ -4,14 +4,14 @@
 
 ## How to Run The Program
 
-Start the backend server before the frontend client.  
+Start the backend server before the frontend client.
 
 **Backend**
 
-  1. Install [MYSQL](https://www.mysql.org/download/) 
+  1. Install [MYSQL](https://www.mysql.org/download/)
   2. Configure MYSQL database credentials in `BACKEND\Home-Ecommerce-Backend\src\main\resources\application.properties`. Spring Boot will import mock data into database by executing `import.sql` automatically.
   3. Put your mySQL username and password as spring.datasource.username and spring.datasource.password in `\BACKEND\Home-Ecommerce-Backend\src\main\resources\application.properties`
-  4. Put your google login username and password as spring.mail.username and spring.mail.password in 
+  4. Put your google login username and password as spring.mail.username and spring.mail.password in
   `\BACKEND\SpringBoot-Backend\src\main\resources\application.properties`
   5. `cd BACKEND`
   6. Run `mvn install`.
@@ -49,10 +49,10 @@ Start the backend server before the frontend client.
     * The api/products/cats is wrong. The endpoint code itself is buggy,
   * WishList
     * In wishlist, the backend only checks what the product’s id, and does not verify for any other information.
-  * General: The program does not check for any validity/completeness of the Json / form-data body, you can basically include anything or miss anything in the Json body and the program will just set the missing parameter to null, which can be extremely insecure. 
+  * General: The program does not check for any validity/completeness of the Json / form-data body, you can basically include anything or miss anything in the Json body and the program will just set the missing parameter to null, which can be extremely insecure.
 
 * BlackBox Testing bugs
-* Address Service 
+* Address Service
   * In address service: the author does not check about null object being as an address and accept it.
 * OrderDetailService
   * In testFindById_InvalidId(), when an invalid id has been entered, the author will just throw an NoSuchElementException, which does not make any sense to terminate the program. A correct way would be to return null.
@@ -73,8 +73,9 @@ Start the backend server before the frontend client.
   * Wishlist
     * findByuserid broken there isn't a way to attach a wishlist to a customer
     * wishlistController.listall broken because it also can’t properly get customers by id. Had to use mock to hardcode a response to get this working
-  * Cart
-    * No bugsfound
+  * Customer
+    * In the updateProfile method if the password is empty or null with cust.getPwd().equals("") || cust.getPwd()==null. This can throw a NullPointerException if cust.getPwd() is null
+
 * API testing
   * For the Wishlist Api, it is not implement property return status code <500> after performing GET and POST
   * All Api will return status code <405> for PUT and DELETE
@@ -103,20 +104,20 @@ Start the backend server before the frontend client.
 
 
 
-  
+
 
 
 # Online Shop Application
 
 #### Problem Statement
  <p> This project is an attempt to provide the advantages of online shopping to customers of a real shop. It helps buying the products in the shop anywhere through internet. Thus the customer will get the service of online shopping and home delivery from his favorite shop. This system can be implemented to any shop in the locality or to multinational branded shops having retail outlet chains. If shops are providing an online portal where their customers can enjoy easy shopping from anywhere, the shops won’t be losing any more customers to the trending online shops such as flipcart or amazon. <p>
- 
+
    ---------
 
-#### A full-stack Online Shop web application using Spring Boot and Angular 8. 
+#### A full-stack Online Shop web application using Spring Boot and Angular 8.
 This is a Single Page Appliaction with client-side rendering. It includes [backend](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/tree/master/BACKEND) and [frontend](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/tree/master/FRONTEND) two seperate projects on different branches.
 E-Commerce application developed for performing Admin and Customer user role operations with respective user interfaces. Application is implemented in two parts:
-1. RESTfull web services: API's build using spring boot are used for handling all the back end operations 
+1. RESTfull web services: API's build using spring boot are used for handling all the back end operations
 2. Front End: User interfaces designed and developed using Angular utilising web services for handling appropriate user actions.I also use [angular material](https://material.angular.io/) UI component library for creating frontend component like navbar, buttons
 The frontend client makes API calls to the backend server when it is running.
 
@@ -140,62 +141,71 @@ The frontend client makes API calls to the backend server when it is running.
   * Updating/ Deleting the Product in cart as well as in wishlist
   * Placing the order
 
-* Technologies: 
+* Technologies:
   * Angular8 (https://material.angular.io/)
   * Typescript
   * Spring Boot
-  * Hibernate with JPA 
+  * Hibernate with JPA
   * MySQL
-  
+
   ---------
- 
+
  #### Application screenshots
- 
-* <b><u>Login</u></b> 
+
+* <b><u>Login</u></b>
     ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/login.jpeg)
-* <b>Register</b> 
+* <b>Register</b>
     ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/register.jpeg)
-    
+
     <h3>USER FUNCTIONALITY</h3>
-    
+
  * Customer
-    * <b>Home</b> 
+    * <b>Home</b>
         ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/user_dashboard.jpeg)
         <br>
     * <b>User profile</b>
         ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/user_profile.jpeg)
         <br>
-    * <b>Customer cart functionality</b> 
+    * <b>Customer cart functionality</b>
         ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/user_cart_functionality.jpeg)
         <br>
-    * <b>Customer Wishlist functionality</b> 
+    * <b>Customer Wishlist functionality</b>
         ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/user_wishlist_functionality.jpeg)
         <br>
     * <b>User order history</b>
         ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/user_order_history.jpeg)
-        
-        
+
+
     <h3>ADMIN FUNCTIONALITY</h3>
-       
-* Admin 
+
+* Admin
     * <b>Home</b>
         ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/admin%20dashboard.jpeg)
         <br>
-    * <b>Add new catagory</b> 
+    * <b>Add new catagory</b>
         ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/admin%20add%20catatogies.jpeg)
         <br>
-    * <b>Add new produc</b>t 
+    * <b>Add new produc</b>t
         ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/admin%20add%20products.jpeg)
         <br>
-    * <b>Bulk implementation</b> 
+    * <b>Bulk implementation</b>
         ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/admin%20bulk.jpeg)
         <br>
-    * <b>Email functionality</b> 
+    * <b>Email functionality</b>
         ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/admin%20email.jpeg)
         <br>
-    * <b>View user</b> 
+    * <b>View user</b>
         ![Image of screenshot](https://github.com/singhanshika311/wipro_capstone_project_c7_b2/blob/master/PROJECT%20IMAGES/admin%20can%20view%20user.jpeg)
 ---------
+
+#### Coverage Reports
+* See the COVERAGE folder for the Jacoco reports.
+* Note, we explicitly achieved 100% LC just for models, controllers, services, DTOs, and repos. The remaining files were not relevant to test
+
+#### Running Whitebox Tests
+1. Open the Home-Ecommerce-Backend as its own project
+2. Execute mvn clean install -Dmaven.test.failure.ignore=true
+3. Run Jacoco report
 
  #### Eureka Server for Microservice
  Eureka Server is service discovery for your microservices, where all client applications can register by themselves and other microservices look up the Eureka Server to get independent microservices to get the job complete.

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Customer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Ecommerce-Backend</a> &gt; <a href="index.source.html" class="el_package">com.homecommerce.models</a> &gt; <span class="el_source">Customer.java</span></div><h1>Customer.java</h1><pre class="source lang-java linenums">package com.homecommerce.models;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Customer {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String name;
+	private String city;
+	private String userid;
+	private String pwd;
+	private String phone;
+	private String gender;
+	
+<span class="fc" id="L20">	public Customer() {</span>
+		// TODO Auto-generated constructor stub
+<span class="fc" id="L22">	}</span>
+	
+
+<span class="fc" id="L25">	public Customer(int id) {</span>
+<span class="fc" id="L26">		this.id = id;</span>
+<span class="fc" id="L27">	}</span>
+	public String getGender() {
+<span class="fc" id="L29">		return gender;</span>
+	}
+	public void setGender(String gender) {
+<span class="fc" id="L32">		this.gender = gender;</span>
+<span class="fc" id="L33">	}</span>
+	public int getId() {
+<span class="fc" id="L35">		return id;</span>
+	}
+	public void setId(int id) {
+<span class="fc" id="L38">		this.id = id;</span>
+<span class="fc" id="L39">	}</span>
+	public String getName() {
+<span class="fc" id="L41">		return name;</span>
+	}
+	public void setName(String name) {
+<span class="fc" id="L44">		this.name = name;</span>
+<span class="fc" id="L45">	}</span>
+	public String getCity() {
+<span class="fc" id="L47">		return city;</span>
+	}
+	public void setCity(String city) {
+<span class="fc" id="L50">		this.city = city;</span>
+<span class="fc" id="L51">	}</span>
+	public String getUserid() {
+<span class="fc" id="L53">		return userid;</span>
+	}
+	public void setUserid(String userid) {
+<span class="fc" id="L56">		this.userid = userid;</span>
+<span class="fc" id="L57">	}</span>
+	public String getPwd() {
+<span class="fc" id="L59">		return pwd;</span>
+	}
+	public void setPwd(String pwd) {
+<span class="fc" id="L62">		this.pwd = pwd;</span>
+<span class="fc" id="L63">	}</span>
+	public String getPhone() {
+<span class="fc" id="L65">		return phone;</span>
+	}
+	public void setPhone(String phone) {
+<span class="fc" id="L68">		this.phone = phone;</span>
+<span class="fc" id="L69">	}</span>
+	@Override
+	public String toString() {
+<span class="fc" id="L72">		return &quot;Customer [id=&quot; + id + &quot;, name=&quot; + name + &quot;, city=&quot; + city + &quot;, userid=&quot; + userid + &quot;, pwd=&quot; + pwd</span>
+				+ &quot;, phone=&quot; + phone + &quot;=&quot; + &quot;]&quot;;
+	}
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

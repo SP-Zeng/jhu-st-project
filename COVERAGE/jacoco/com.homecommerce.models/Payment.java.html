@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Payment.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Ecommerce-Backend</a> &gt; <a href="index.source.html" class="el_package">com.homecommerce.models</a> &gt; <span class="el_source">Payment.java</span></div><h1>Payment.java</h1><pre class="source lang-java linenums">package com.homecommerce.models;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name=&quot;payments&quot;)
+public class Payment {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String cardno;
+	private String nameoncard;
+	private int amount;
+	private LocalDate paymentdate;
+<span class="fc" id="L22">	public Payment() {</span>
+<span class="fc" id="L23">		this.paymentdate=LocalDate.now();</span>
+<span class="fc" id="L24">	}</span>
+	public int getId() {
+<span class="fc" id="L26">		return id;</span>
+	}
+	public void setId(int id) {
+<span class="fc" id="L29">		this.id = id;</span>
+<span class="fc" id="L30">	}</span>
+	public String getCardno() {
+<span class="fc" id="L32">		return cardno;</span>
+	}
+	public void setCardno(String cardno) {
+<span class="fc" id="L35">		this.cardno = cardno;</span>
+<span class="fc" id="L36">	}</span>
+	public String getNameoncard() {
+<span class="fc" id="L38">		return nameoncard;</span>
+	}
+	public void setNameoncard(String nameoncard) {
+<span class="fc" id="L41">		this.nameoncard = nameoncard;</span>
+<span class="fc" id="L42">	}</span>
+	public int getAmount() {
+<span class="fc" id="L44">		return amount;</span>
+	}
+	public void setAmount(int amount) {
+<span class="fc" id="L47">		this.amount = amount;</span>
+<span class="fc" id="L48">	}</span>
+	
+	public LocalDate getPaymentdate() {
+<span class="fc" id="L51">		return paymentdate;</span>
+	}
+	public void setPaymentdate(LocalDate paymentdate) {
+<span class="fc" id="L54">		this.paymentdate = paymentdate;</span>
+<span class="fc" id="L55">	}</span>
+	@Override
+	public String toString() {
+<span class="fc" id="L58">		return &quot;Payment [id=&quot; + id + &quot;, cardno=&quot; + cardno + &quot;, nameoncard=&quot; + nameoncard + &quot;, amount=&quot; + amount</span>
+				+ &quot;, paymentdate=&quot; + paymentdate + &quot;]&quot;;
+	}
+	
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
