@@ -122,7 +122,7 @@ public class GuiTestUser {
         login_1_account();
         $(By.xpath("//*[@id=\"navbarDropdown\"]")).click();
 
-        assertEquals("vechicle", $(By.xpath("//*[@id=\"navbarNav\"]/ul/li[2]/div/a[1]")).getOwnText());
+        assertEquals("vehicle", $(By.xpath("//*[@id=\"navbarNav\"]/ul/li[2]/div/a[1]")).getOwnText());
         $(By.xpath("//*[@id=\"navbarNav\"]/ul/li[2]/div/a[1]")).click();
 
         assertEquals("Products", $(By.xpath("/html/body/app-root/app-home/div/h4")).getOwnText());

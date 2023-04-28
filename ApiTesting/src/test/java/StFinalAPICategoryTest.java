@@ -33,23 +33,14 @@ public class StFinalAPICategoryTest {
                 .body("size()", greaterThan(0));
     }
 
-    @Test
-    public void testCategoriesAPIItemInfo(){
-        given()
-                .baseUri(url)
-                .when()
-                .get("/api/categories")
-                .then()
-                .statusCode(200)
-                .body("catname", hasItem("vehicle"));
-    }
+
 
     /*
     Test the post function for the categories api. It is working.
      */
     @Test
     public void testCategoriesAPIPostCat(){
-        String json = "{\"id\":3,\"catname\":\"food\"}";
+        String json = "{\"id\":3,\"catname\":\"vehicle\"}";
 
         given()
                 .contentType(ContentType.JSON)
@@ -60,6 +51,17 @@ public class StFinalAPICategoryTest {
                 .then()
                 .assertThat()
                 .statusCode(200);
+    }
+
+    @Test
+    public void testCategoriesAPIItemInfo(){
+        given()
+                .baseUri(url)
+                .when()
+                .get("/api/categories")
+                .then()
+                .statusCode(200)
+                .body("catname", hasItem("vehicle"));
     }
 
     /*

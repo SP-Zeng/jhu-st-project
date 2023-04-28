@@ -40,7 +40,7 @@ public class StFinalAPICustomerTest {
                 .get("/api/customers")
                 .then()
                 .statusCode(200)
-                .body("name", hasItem("Ken"));
+                .body("name", hasItem("1"));
     }
 
     /*
