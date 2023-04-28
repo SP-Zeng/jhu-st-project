@@ -6,7 +6,7 @@
 
 Start the backend server before the frontend client.
 
-###**Backend**
+### **Backend**
 
   1. Install [MYSQL](https://www.mysql.org/download/)
   2. Configure MYSQL database credentials in `BACKEND\Home-Ecommerce-Backend\src\main\resources\application.properties`. Spring Boot will import mock data into database by executing `import.sql` automatically.
