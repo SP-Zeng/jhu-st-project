@@ -35,21 +35,6 @@ public class StFinalAPIOrdersTest {
     }
 
     /*
-    check if the Ken's order is existed. The get function works fine.
-     */
-    @Test
-    public void testOrdersAPIItemInfo(){
-        String response = given().baseUri(url).get("/api/orders").asString();
-
-    // Extract the customer name using JsonPath:
-            JsonPath jsonPath = new JsonPath(response);
-            String customerName = jsonPath.getString("customer.name");
-
-    // Assert that the customer name is "Ken":
-            assertTrue(customerName.contains("Ken"));
-    }
-
-    /*
     Test the post function for the Orders api. It is working.
      */
     @Test
@@ -67,6 +52,23 @@ public class StFinalAPIOrdersTest {
                 .assertThat()
                 .statusCode(200);
     }
+
+    /*
+    check if the Ken's order is existed. The get function works fine.
+     */
+    @Test
+    public void testOrdersAPIItemInfo(){
+        String response = given().baseUri(url).get("/api/orders").asString();
+
+    // Extract the customer name using JsonPath:
+            JsonPath jsonPath = new JsonPath(response);
+            String customerName = jsonPath.getString("customer.name");
+
+    // Assert that the customer name is "Ken":
+            assertTrue(customerName.contains("Ben"));
+    }
+
+
 
 
     /*

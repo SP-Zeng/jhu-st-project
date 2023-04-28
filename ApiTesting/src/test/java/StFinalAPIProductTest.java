@@ -41,13 +41,35 @@ public class StFinalAPIProductTest {
     }
 
     /*
+    Create a new post by sending a http POST request to /posts endpoint with this info
+    Then Check if the post is successful.
+     */
+    @Test
+    public void testProductAPIPost() throws IOException {
+        given()
+                .contentType("multipart/form-data")
+                .multiPart("id", 2)
+                .multiPart("pname", "Benz C400")
+                .multiPart("descr", "Car")
+                .multiPart("category", 21)
+                .multiPart("price", 30000)
+                .multiPart("pic", new File("src/test/server/server/uploads/7e466f8a692241309173c6e8d973c054.jpg"))
+                .baseUri(url)
+                .when()
+                .post("/api/products")
+                .then()
+                .statusCode(200)
+                .body("pname", hasItem("Benz C400"));
+    }
+
+    /*
     I add this item info from frontend:
     [{"id":1,
-    "pname":"Benz C300",
+    "pname":"Benz C400",
     "descr":"Car",
-    "category":{"id":1,"catname":"vechicle"},
+    "category":{"12"},
     "price":30000,
-    "photo":"d7069b8d6b9142e0b0f28c70bc6a9163.png"}]
+    "photo":"7e466f8a692241309173c6e8d973c054.png"}]
     check if we can get the products correctly
      */
     @Test
@@ -59,33 +81,13 @@ public class StFinalAPIProductTest {
                 .then()
                 .statusCode(200)
                 .body("id", hasItem(1))
-                .body("pname", hasItem("Benz C300"))
+                .body("pname", hasItem("Benz C400"))
                 .body("descr", hasItem("Car"))
                 .body("price", hasItem(30000));
     }
 
 
-    /*
-    Create a new post by sending a http POST request to /posts endpoint with this info
-    Then Check if the post is successful.
-     */
-    @Test
-    public void testProductAPIPost() throws IOException {
-         given()
-                .contentType("multipart/form-data")
-                 .multiPart("id", 2)
-                 .multiPart("pname", "Benz C400")
-                 .multiPart("descr", "Car")
-                 .multiPart("category", 21)
-                 .multiPart("price", 30000)
-                 .multiPart("pic", new File("src/test/server/server/uploads/7e466f8a692241309173c6e8d973c054.jpg"))
-                .baseUri(url)
-                .when()
-                .post("/api/products")
-                .then()
-                .statusCode(200)
-                 .body("pname", hasItem("Benz C400"));
-    }
+
 
 
     /*
