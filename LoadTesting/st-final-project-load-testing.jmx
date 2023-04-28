@@ -420,8 +420,8 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;userid&quot;: &quot;11&quot;,&#xd;
-    &quot;pwd&quot;: &quot;11&quot;&#xd;
+    &quot;userid&quot;: &quot;1&quot;,&#xd;
+    &quot;pwd&quot;: &quot;1&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
