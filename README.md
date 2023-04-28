@@ -31,6 +31,9 @@ Start the backend server before the frontend client.
 
 **Note Before Testing**
   For the GUI testing and API tesing, we have some pre existing data stored in our local database. This is because we have bug to login using duplicate registered login username. Here is the pre existing data in our database. 
+   * User:
+   * Category:
+   * Product
 
 **Tests**
   1. JUnit for Whitebox unit on the Backend
