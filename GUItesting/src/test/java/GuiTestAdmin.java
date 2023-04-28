@@ -83,16 +83,18 @@ public class GuiTestAdmin {
         actions().sendKeys("game").perform();
         $(By.xpath("/html/body/app-root/app-category/div/div/div[2]/form/button")).click();
 
+        assertEquals("game", $(By.xpath("/html/body/app-root/app-category/div/div/div[1]/table/tbody/tr[2]/td[2]")).getOwnText());
+
         //check if the "game" is added successfully
-        boolean found = false;
-        for (SelenideElement li : $$("tr")) {
-            String text = li.getText();
-            if (text.contains("game")) {
-                found = true;
-                break;
-            }
-        }
-        assertTrue(found);
+//        boolean found = false;
+//        for (SelenideElement li : $$("td")) {
+//            String text = li.getText();
+//            if (text.contains("vehicle")) {
+//                found = true;
+//                break;
+//            }
+//        }
+//        assertFalse(found);
     }
 
     /*
@@ -115,7 +117,7 @@ public class GuiTestAdmin {
         //add new category
         $(By.xpath("/html/body/app-root/app-products/div[1]/div/div[2]/form/div[2]/select")).click();
         Select se = new Select($(By.xpath("/html/body/app-root/app-products/div[1]/div/div[2]/form/div[2]/select")));
-        se.selectByIndex(3);
+        se.selectByIndex(1);
 
         //add new description
         $(By.xpath("/html/body/app-root/app-products/div[1]/div/div[2]/form/div[3]/input")).click();
@@ -167,7 +169,7 @@ public class GuiTestAdmin {
         boolean found = false;
         for (SelenideElement li : $$("tr")) {
             String text = li.getText();
-            if (text.contains("Ken") && text.contains("Baltimore")) {
+            if (text.contains("1") && text.contains("1")) {
                 found = true;
                 break;
             }

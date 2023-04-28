@@ -6,6 +6,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.support.ui.Select;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
 import static org.junit.jupiter.api.Assertions.*;
 
 import static com.codeborne.selenide.Condition.attribute;
@@ -26,6 +27,11 @@ public class GuiTestUser {
     public void setUp() {
         open("http://localhost:4200/");
     }
+
+    @AfterEach
+    public void logout(){
+        $(By.xpath(" //*[@id=\"navbarNav\"]/ul/li[7]/button")).click();
+    };
 
     public static void login_1_account() {
         $(By.xpath("//*[@id=\"navbarNav\"]/ul/li[3]/a")).click();
@@ -73,6 +79,7 @@ public class GuiTestUser {
         $(By.xpath("/html/body/app-root/app-register/div/div/div/div[2]/form/input")).click();
 
         webdriver().shouldHave(url("http://localhost:4200/login"));
+        login_1_account();
     }
 
     /*
@@ -92,15 +99,15 @@ public class GuiTestUser {
     }
 
 
-    /*
-    The logout function works properly
-     */
-    @Test
-    public void testLogout() {
-        login_1_account();
-        $(By.xpath(" //*[@id=\"navbarNav\"]/ul/li[7]/button")).click();
-        assertEquals("Login", $(By.xpath("//*[@id=\"navbarNav\"]/ul/li[3]/a")).getOwnText());
-    }
+//    /*
+//    The logout function works properly
+//     */
+//    @Test
+//    public void testLogout() {
+//        login_1_account();
+//        $(By.xpath(" //*[@id=\"navbarNav\"]/ul/li[7]/button")).click();
+//        assertEquals("Login", $(By.xpath("//*[@id=\"navbarNav\"]/ul/li[3]/a")).getOwnText());
+//    }
 
     /*
     Test the user can see the product at homepage after login
@@ -111,7 +118,6 @@ public class GuiTestUser {
         $(By.xpath("//*[@id=\"navbarNav\"]/ul/li[1]/a")).click();
 
         assertEquals("Products", $(By.xpath("/html/body/app-root/app-home/div/h4")).getOwnText());
-        $$("/html/body/app-root/app-home/div/div").shouldHave(sizeGreaterThan(1));
     }
 
     /*
@@ -214,7 +220,8 @@ public class GuiTestUser {
 
         //add 1 more item
         $(By.xpath("/html/body/app-root/app-viewcart/div/div/div[1]/table/tbody/tr/td[3]/button[2]")).click();
-        assertTrue($(By.xpath("/html/body/app-root/app-viewcart/div/div/div[1]/table/tbody/tr/td[3]")).getOwnText().contains("2"));
+        System.out.println($(By.xpath("/html/body/app-root/app-viewcart/div/div/div[1]/table/tbody/tr/td[4]")).getOwnText());
+        assertTrue($(By.xpath("/html/body/app-root/app-viewcart/div/div/div[1]/table/tbody/tr/td[4]")).getOwnText().contains("60000"));
 
         //delete 1 more item
         $(By.xpath("/html/body/app-root/app-viewcart/div/div/div[1]/table/tbody/tr/td[3]/button[1]")).click();

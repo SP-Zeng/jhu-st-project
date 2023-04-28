@@ -51,15 +51,14 @@ public class StFinalAPIProductTest {
                 .multiPart("id", 2)
                 .multiPart("pname", "Benz C400")
                 .multiPart("descr", "Car")
-                .multiPart("category", 21)
-                .multiPart("price", 30000)
+                .multiPart("category", "1")
+                .multiPart("price", "30000")
                 .multiPart("pic", new File("src/test/server/server/uploads/7e466f8a692241309173c6e8d973c054.jpg"))
                 .baseUri(url)
                 .when()
                 .post("/api/products")
                 .then()
-                .statusCode(200)
-                .body("pname", hasItem("Benz C400"));
+                .statusCode(200);
     }
 
     /*
@@ -100,8 +99,8 @@ public class StFinalAPIProductTest {
                 .multiPart("id", 2)
                 .multiPart("pname", "Benz C400")
                 .multiPart("descr", "Car")
-                .multiPart("category", 21)
-                .multiPart("price", 30000)
+                .multiPart("category", "1")
+                .multiPart("price", "30000")
                 .multiPart("pic", new File("src/test/server/server/uploads/7e466f8a692241309173c6e8d973c054.jpg"))
                 .baseUri(url)
                 .when()

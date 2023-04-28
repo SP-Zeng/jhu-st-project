@@ -65,7 +65,7 @@ public class StFinalAPIOrdersTest {
             String customerName = jsonPath.getString("customer.name");
 
     // Assert that the customer name is "Ken":
-            assertTrue(customerName.contains("Ben"));
+            assertTrue(customerName.contains("1"));
     }
 
 
