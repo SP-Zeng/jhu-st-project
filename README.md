@@ -105,7 +105,7 @@ Start the backend server before the frontend client.
 
 ### **Results**
   * Jacoco Report in `COVERAGE/jacoco` (https://github.com/SP-Zeng/jhu-st-project/tree/main/COVERAGE/jacoco)
-  * Load Testing Graph Report in `LoadTesting\load-testing-graph-results` (https://github.com/SP-Zeng/jhu-st-project/tree/main/LoadTesting\load-testing-graph-results)
+  * Load Testing Graph Report in `LoadTesting\load-testing-graph-results` (https://github.com/SP-Zeng/jhu-st-project/tree/main/LoadTesting/load-testing-graph-results)
 
 
 
