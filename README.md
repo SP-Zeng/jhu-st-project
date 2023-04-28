@@ -30,19 +30,17 @@ Start the backend server before the frontend client.
   5. The frontend client is running on [localhost:4200]().
 
 **Note Before Testing**
-  For the GUI testing and API tesing, we have some pre existing data stored in our local database. This is because we have bug to login using duplicate registered login username. Here is the pre existing data in our database.
-   * User:
-   * Category:
-   * Product
+  For the GUI testing and API tesing, we have some pre existing data stored in our local database. This is because the author's code has bug to login using duplicate registered login username. 
+   * After you have both frontend and backend deployed, please run `jhu-st-project\ApiTesting\src\test\java\StFinalSetup.java` in the API testing environment to initialize the databases for testing.
 
 **Tests**
   1. JUnit for Whitebox unit on the Backend
-  and Integration testing on the Backend in `\BACKEND\Home-Ecommerce-Backend\src\test\java\com\homecommerce\*`
-  2. JUnit for Blackbox unit on the Backend Services (DTOs and Models are all an Entity classes to model the databases so it's not tested and Controllers are endpoints tested in the API testing) in `\BACKEND\Home-Ecommerce-Backend\src\test\java\blackbox_testing\services\`
-  3. API Testing on the Backend in `\GUItesting\src\test\java`. Use Intellj, open the test file end with ".java" then press "ctrl + shift + F10" or press "Run" to go over tests.
-  4. GUI Testing on the Backend in `\ApiTesting\src\test\java`. Use Intellj, open the test file end with ".java" then press "ctrl + shift + F10" or press "Run" to go over tests.
-  5. Load testing on the Backend in `\LoadTesting\st-final-project-load-testing.jmx` This load testing is based on [Jemeter GUI mode](https://jmeter.apache.org/), download the Jemeter, and move st-final-project-load-testing.jmx into `apache-jmeter-5.5\bin` and open the .jmx file in the Jemeter GUI.
-  6. Angular unit testing in `\FRONTEND\src\app` (all files end with ".spec.ts")
+  and Integration testing on the Backend in `\BACKEND\Home-Ecommerce-Backend\src\test\java\com\homecommerce\*` (It's a Gradle Project, in Intellij, import project folder as \BACKEND\Home-Ecommerce-Backend)
+  2. JUnit for Blackbox unit on the Backend Services (DTOs and Models are all an Entity classes to model the databases so it's not tested and Controllers are endpoints tested in the API testing) in `\BACKEND\Home-Ecommerce-Backend\src\test\java\blackbox_testing\services\` (It's a Gradle Project, in Intellij, import project folder as \BACKEND\Home-Ecommerce-Backend)
+  3. API Testing on the Backend in `\GUItesting\src\test\java`. Use Intellj, open the test file end with ".java" then press "ctrl + shift + F10" or press "Run" to go over tests. (It's a Gradle Project, in Intellij, import project folder as \GUItesting)
+  4. GUI Testing on the Backend in `\ApiTesting\src\test\java`. Use Intellj, open the test file end with ".java" then press "ctrl + shift + F10" or press "Run" to go over tests. (It's a Gradle Project, in Intellij, import project folder as \ApiTesting)
+  5. Load testing on the Backend in `\LoadTesting\st-final-project-load-testing.jmx` This load testing is based on [Jemeter GUI mode](https://jmeter.apache.org/), download the Jemeter, and move st-final-project-load-testing.jmx into `apache-jmeter-5.5\bin` and open the .jmx file in the Jemeter GUI. 
+  6. Angular unit testing in `\FRONTEND\src\app` (all files end with ".spec.ts"). In \Frontend, run `ng test`.
 
 
 **Faults after testing**
