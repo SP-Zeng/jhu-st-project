@@ -30,7 +30,7 @@ Start the backend server before the frontend client.
   5. The frontend client is running on [localhost:4200]().
 
 **Note Before Testing**
-  For the GUI testing and API tesing, we have some pre existing data stored in our local database. This is because we have bug to login using duplicate registered login username. Here is the pre existing data in our database. 
+  For the GUI testing and API tesing, we have some pre existing data stored in our local database. This is because we have bug to login using duplicate registered login username. Here is the pre existing data in our database.
    * User:
    * Category:
    * Product
@@ -206,11 +206,11 @@ The frontend client makes API calls to the backend server when it is running.
 
 #### Coverage Reports
 * See the COVERAGE folder for the Jacoco reports.
-* Note, we explicitly achieved 100% LC just for models, controllers, services, DTOs, and repos. The remaining files were not relevant to test
+* Note, we explicitly achieved 100% LC just for models, controllers, services, DTOs, and repos. The remaining files were not relevant to test the Backend and were purposefully excluded.
 
 #### Running Whitebox Tests
 1. Open the Home-Ecommerce-Backend as its own project
-2. Execute mvn clean install -Dmaven.test.failure.ignore=true
+2. Execute `mvn clean install -Dmaven.test.failure.ignore=true` expect tests to fail revealing faults
 3. Run Jacoco report
 
  #### Eureka Server for Microservice
