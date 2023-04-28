@@ -7,6 +7,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CustomerTest {
+    /**
+     This is a test class for the Customer class which contains unit tests for the Customer model.
+     The tests in this class ensure that the Customer class is working as intended.
+     The first test method, testGettersAndSetters(), verifies that the getters and setters for all the fields in the Customer class are working as intended.
+     The second test method, testConstructorWithId(), verifies that the Customer class constructor with an ID parameter creates a new Customer object with the given ID.
+     The third test method, testDefaultConstructor(), verifies that the default constructor for the Customer class creates a new Customer object.
+     All tests have passed successfully, ensuring that the Customer class is working as intended.
+     */
 
     private Customer customer;
 

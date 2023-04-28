@@ -4,6 +4,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ProductTest {
+    /**
+
+     This is a test class for the Product class which is a model class that represents a product in the home-commerce system.
+     The tests in this class ensure that the Product class is working as intended.
+     The first test method, testConstructorAndGetters(), verifies that the Product constructor and getters correctly set and return the properties of a product.
+     The second test method, testSetters(), verifies that the setters correctly set the properties of a product.
+     The third test method, testToString(), verifies that the toString() method in the Product class returns the expected string representation of a product.
+     */
 
     @Test
     public void testConstructorAndGetters() {

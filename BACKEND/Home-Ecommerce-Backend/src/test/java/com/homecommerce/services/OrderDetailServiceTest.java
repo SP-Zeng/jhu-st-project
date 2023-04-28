@@ -24,6 +24,18 @@ import com.homecommerce.models.OrderDetails;
 import com.homecommerce.repos.OrderDetailsRepository;
 
 class OrderDetailServiceTest {
+    /**
+
+     This is a test class for the OrderDetailService class which handles CRUD operations on the OrderDetails model.
+     The tests in this class ensure that the OrderDetailService class is working as intended.
+     It uses the Mockito framework to mock the OrderDetailsRepository dependency, and test the behavior of the OrderDetailService methods.
+     The first test method, testSaveOrderDetails(), verifies that the saveOrderDetails() method in the OrderDetailService class saves an order details
+     using the OrderDetailsRepository, and returns nothing.
+     The second test method, testFindById(), verifies that the findById() method in the OrderDetailService class retrieves an order details by id
+     using the OrderDetailsRepository, and returns the corresponding OrderDetails object.
+     The third test method, testFindByOrder(), verifies that the findByOrder() method in the OrderDetailService class retrieves all order details
+     related to an order using the OrderDetailsRepository, and returns a list of OrderDetails.
+     */
 
     @Mock
     private OrderDetailsRepository orderDetailsRepository;

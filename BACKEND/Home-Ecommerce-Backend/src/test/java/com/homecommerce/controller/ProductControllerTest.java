@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,23 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 class ProductControllerTest {
+    /**
+     This is a test class for the ProductController class which handles HTTP requests and responses for the Product model.
+     The tests in this class ensure that the ProductController class is working as intended.
+     It uses the Mockito framework to mock the ProductService dependency, and test the behavior of the ProductController methods.
+     The first test method, testSaveProduct(), verifies that the saveProduct() method in the ProductController class saves a product
+     using the ProductService, and returns an HTTP status of OK along with a success message.
+     The second test method, testUpdateProduct(), verifies that the updateProduct() method in the ProductController class updates a product
+     using the ProductService, and returns an HTTP status of OK along with a success message.
+     The third test method, testFindProduct(), verifies that the findProduct() method in the ProductController class retrieves a product
+     by ID using the ProductService, and returns an HTTP status of OK along with the retrieved product.
+     The fourth test method, testFindAllProducts(), verifies that the findAllProducts() method in the ProductController class retrieves all products
+     using the ProductService, and returns a list of products.
+     The fifth test method, testFindByCategory(), verifies that the findByCategory() method in the ProductController class retrieves all products
+     for a specific category by ID using the ProductService, and returns a list of products.
+     The sixth test method, testDeleteProduct(), verifies that the deleteProduct() method in the ProductController class
+     deletes a product by ID using the ProductService, and returns an HTTP status of OK along with a success message.
+     */
 
     @Mock
     private ProductService productService;
@@ -178,6 +196,69 @@ class ProductControllerTest {
         assertEquals(productList, resultList);
 
         verify(productService, times(1)).categoryProducts(anyInt());
+    }
+
+    @Test
+    public void testFindAllProducts_withSearchQuery() {
+        // Arrange
+        ProductService productService = mock(ProductService.class);
+        ProductController productController = new ProductController();
+        productController.bservice = productService;
+
+        List<Product> expectedProducts = Arrays.asList(
+                new Product(1),
+                new Product(2)
+        );
+        when(productService.searchProducts(anyString())).thenReturn(expectedProducts);
+
+        Optional<String> search = Optional.of("product");
+
+        // Act
+        List<Product> actualProducts = productController.findAllProducts(search);
+
+        // Assert
+        assertEquals(expectedProducts, actualProducts);
+    }
+
+    @Test
+    public void testFindAllProducts_withoutSearchQuery() {
+        // Arrange
+        ProductService productService = mock(ProductService.class);
+        ProductController productController = new ProductController();
+        productController.bservice = productService;
+
+        List<Product> expectedProducts = Arrays.asList(
+                new Product(1),
+                new Product(2)
+        );
+        when(productService.allProducts()).thenReturn(expectedProducts);
+
+        Optional<String> search = Optional.empty();
+
+        // Act
+        List<Product> actualProducts = productController.findAllProducts(search);
+
+        // Assert
+        assertEquals(expectedProducts, actualProducts);
+    }
+
+    @Test
+    public void testFindAllProducts_withEmptyResult() {
+        // Arrange
+        ProductService productService = mock(ProductService.class);
+        ProductController productController = new ProductController();
+        productController.bservice = productService;
+
+        List<Product> expectedProducts = new ArrayList<>();
+        when(productService.allProducts()).thenReturn(expectedProducts);
+
+        Optional<String> search = Optional.empty();
+
+        // Act
+        List<Product> actualProducts = productController.findAllProducts(search);
+
+        // Assert
+        assertEquals(expectedProducts, actualProducts);
     }
 
     @Test

@@ -19,6 +19,20 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
 class OrderServiceTest {
+    /**
+     This is a test class for the OrderService class which is responsible for handling business logic for the Order model.
+     The tests in this class ensure that the OrderService class is working as intended.
+     The first test method, testSaveOrder(), verifies that the saveOrder() method in the OrderService class saves an order
+     using the OrderRepository, and returns the saved order.
+     The second test method, testConfirm(), verifies that the confirm() method in the OrderService class changes the status
+     of an order from "Created" to "Confirmed" and saves the updated order using the OrderRepository.
+     The third test method, testGetAllOrders(), verifies that the getAllOrders() method in the OrderService class retrieves
+     all orders using the OrderRepository and returns a list of orders.
+     The fourth test method, testGetCustomerOrders(), verifies that the getCustomerOrders() method in the OrderService class
+     retrieves all orders associated with a given customer using the OrderRepository and returns a list of orders.
+     The fifth test method, testFindById(), verifies that the findById() method in the OrderService class retrieves an order
+     by its id using the OrderRepository and returns the order.
+     */
 
     @Mock
     private OrderRepository orderRepository;

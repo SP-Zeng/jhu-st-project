@@ -8,6 +8,14 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 
 class PaymentTest {
+    /**
+
+     This is a test class for the Payment model, which represents a payment made by a customer.
+     The tests in this class ensure that the Payment class is working as intended.
+     The first five test methods verify that the getters and setters for the Payment class work correctly.
+     The testConstructor() method verifies that a new Payment object has a non-null payment date.
+     The testToString() method verifies that the toString() method for a Payment object generates the expected string.
+     */
 
     @Test
     void testGetSetId() {

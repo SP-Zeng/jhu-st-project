@@ -22,6 +22,23 @@ import com.homecommerce.models.Wishlist;
 import com.homecommerce.services.WishlistService;
 
 public class WishlistControllerTest {
+    /**
+     This class contains the unit tests for the WishlistController class. It uses Mockito to mock the WishlistService class
+     and test the saveItem, saveItemAlreadyExists, listall, and deleteItem methods of the WishlistController.
+     The testSaveItem method tests the saveItem method of the WishlistController by creating a WishlistDTO and a Product object,
+     setting them up appropriately, and calling the saveItem method. It then verifies that the checkexist and save methods of the
+     WishlistService were called, and checks that the response matches the expected response.
+     The testSaveItemAlreadyExists method tests the saveItem method of the WishlistController when the item being saved already
+     exists in the wishlist. It uses Mockito to mock the checkexist method of the WishlistService and returns true when called.
+     It then calls the saveItem method of the WishlistController and verifies that the checkexist method of the WishlistService
+     was called and that the response matches the expected response.
+     The testListall method tests the listall method of the WishlistController by creating a Customer and a Wishlist list, and
+     setting up the WishlistService to return the Wishlist list when findByuserid is called. It then calls the listall method
+     of the WishlistController and verifies that the findByuserid method of the WishlistService was called and that the response
+     matches the expected response.
+     The testDeleteItem method tests the deleteItem method of the WishlistController by calling it and verifying that the
+     deleteItem method of the WishlistService was called and that the response matches the expected response.
+     */
 
     @Mock
     private WishlistService wishlistService;
@@ -67,10 +84,10 @@ public class WishlistControllerTest {
 
     @Test
     void testListall() {
+        // BUG: there isn't a way to attach a wishlist to a customer
         List<Wishlist> wishlist = new ArrayList<>();
         Customer customer = new Customer();
         wishlist.add(new Wishlist());
-        // there isn't a way to attach a wishlist to a customer
         when(wishlistService.findByuserid(1)).thenReturn(wishlist);
 
         List<Wishlist> response = wishlistController.listall(1);

@@ -13,6 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartControllerTest {
+    /**
+     This class represents the unit tests for the CartController class, which is responsible for handling HTTP requests related to the Cart model.
+     The tests include checking the functionality of methods that handle adding, updating, listing, and deleting items in the cart.
+     The tests are performed using Mockito to mock the CartService dependency, which is injected into the CartController.
+     The tests ensure that the controller interacts with the service layer correctly and that the expected HTTP response statuses and bodies are returned.
+     */
 
     private CartService cartService;
     private CartController cartController;
@@ -32,14 +38,14 @@ public class CartControllerTest {
 
     @Test
     void testSaveItem() {
-        // Given
+
         Mockito.when(cartService.checkexist(Mockito.any(), Mockito.any())).thenReturn(false);
         Mockito.doNothing().when(cartService).save(Mockito.any());
 
-        // When
+
         ResponseEntity<?> response = cartController.saveItem(cart);
 
-        // Then
+
         Mockito.verify(cartService, Mockito.times(1)).checkexist(Mockito.any(), Mockito.any());
         Mockito.verify(cartService, Mockito.times(1)).save(Mockito.any());
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -47,13 +53,13 @@ public class CartControllerTest {
 
     @Test
     void testSaveItemAlreadyExists() {
-        // Given
+
         Mockito.when(cartService.checkexist(Mockito.any(), Mockito.any())).thenReturn(true);
 
-        // When
+
         ResponseEntity<?> response = cartController.saveItem(cart);
 
-        // Then
+
         Mockito.verify(cartService, Mockito.times(1)).checkexist(Mockito.any(), Mockito.any());
         Mockito.verify(cartService, Mockito.times(0)).save(Mockito.any());
         Assertions.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
@@ -62,41 +68,41 @@ public class CartControllerTest {
 
     @Test
     void testUpdateQty() {
-        // Given
+
         Mockito.doNothing().when(cartService).updateQty(Mockito.anyInt(), Mockito.anyInt());
 
-        // When
+
         ResponseEntity<?> response = cartController.updateQty(1, 2);
 
-        // Then
+
         Mockito.verify(cartService, Mockito.times(1)).updateQty(Mockito.anyInt(), Mockito.anyInt());
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
     void testListAll() {
-        // Given
+
         List<Cart> carts = new ArrayList<>();
         carts.add(cart);
         Mockito.when(cartService.findByuserid(Mockito.anyInt())).thenReturn(carts);
 
-        // When
+
         List<Cart> response = cartController.listall(1);
 
-        // Then
+
         Mockito.verify(cartService, Mockito.times(1)).findByuserid(Mockito.anyInt());
         Assertions.assertEquals(carts, response);
     }
 
     @Test
     void testDeleteItem() {
-        // Given
+
         Mockito.doNothing().when(cartService).deleteItem(Mockito.anyInt());
 
-        // When
+
         ResponseEntity<?> response = cartController.deleteItem(1);
 
-        // Then
+
         Mockito.verify(cartService, Mockito.times(1)).deleteItem(Mockito.anyInt());
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
     }

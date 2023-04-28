@@ -10,6 +10,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class ResponseTest {
+    /**
+     This is a test class for the Response class which is used to return HTTP responses for different scenarios in the application.
+     The tests in this class ensure that the Response class is working as intended.
+     The first test method, testSuccessWithNonNullData(), verifies that the Response.success() method returns a ResponseEntity object
+     with HTTP status of OK, and a success message along with the provided data object.
+     The second test method, testSuccessWithNullData(), verifies that the Response.success() method returns a ResponseEntity object
+     with HTTP status of OK, and a success message with null data when the provided data object is null.
+     The third test method, testErrorWithNonNullError(), verifies that the Response.error() method returns a ResponseEntity object
+     with HTTP status of OK, and an error message along with the provided error object.
+     The fourth test method, testErrorWithNullError(), verifies that the Response.error() method returns a ResponseEntity object
+     with HTTP status of OK, and an error message with null error object when the provided error object is null.
+     The fifth test method, testStatus(), verifies that the Response.status() method returns a ResponseEntity object
+     with the provided HTTP status.
+     The sixth test method, testConstructor(), verifies that a new instance of the Response class can be created successfully.
+     */
 
     @Test
     public void testSuccessWithNonNullData() {

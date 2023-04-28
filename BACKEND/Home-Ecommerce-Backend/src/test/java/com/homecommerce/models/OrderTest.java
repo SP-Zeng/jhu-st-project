@@ -11,6 +11,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class OrderTest {
+    /**
+     This is a test class for the Order model which contains tests to verify that the Order model is working as intended.
+     The test methods use the JUnit5 testing framework to test the getters, setters and constructor of the Order class.
+     The testSetAndGetOrderId() method verifies that the setId() and getId() methods of the Order class set and get the orderId as expected.
+     The testSetAndGetOrderDate() method verifies that the setOrderDate() and getOrderDate() methods of the Order class set and get the orderDate as expected.
+     The testSetAndGetCustomer() method verifies that the setCustomer() and getCustomer() methods of the Order class set and get the customer as expected.
+     The testSetAndGetAddress() method verifies that the setAddress() and getAddress() methods of the Order class set and get the address as expected.
+     The testSetAndGetPayment() method verifies that the setPayment() and getPayment() methods of the Order class set and get the payment as expected.
+     The testSetAndGetPaymethod() method verifies that the setPaymethod() and getPaymethod() methods of the Order class set and get the paymethod as expected.
+     The testSetAndGetStatus() method verifies that the setStatus() and getStatus() methods of the Order class set and get the status as expected.
+     The testSetAndGetOrderDetails() method verifies that the setOrderdetails() and getOrderdetails() methods of the Order class set and get the orderdetails as expected.
+     The testConstructor() method verifies that the default values of the Order class constructor are set as expected.
+     */
 
     private Order order;
 

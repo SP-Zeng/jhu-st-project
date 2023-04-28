@@ -4,6 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class AdminTest {
+    /**
+     * This class contains unit tests for the Admin class.
+     * The testGettersAndSetters() method tests the getters and setters of the Admin class.
+     * The testConstructor() method tests the constructor of the Admin class.
+     * The testToString() method tests the toString() method of the Admin class.
+     */
 
     @Test
     public void testGettersAndSetters() {

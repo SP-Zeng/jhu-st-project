@@ -17,6 +17,17 @@ import java.util.HashMap;
 import static org.mockito.Mockito.*;
 
 class CategoryControllerTest {
+    /**
+     This is a test class for the CategoryController class which handles HTTP requests and responses for the Category model.
+     The tests in this class ensure that the CategoryController class is working as intended.
+     It uses the Mockito framework to mock the CategoryService dependency, and test the behavior of the CategoryController methods.
+     The first test method, testSaveCategory(), verifies that the saveCategory() method in the CategoryController class saves a category
+     using the CategoryService, and returns an HTTP status of OK along with a success message.
+     The second test method, testListAll(), verifies that the listAll() method in the CategoryController class retrieves all categories
+     using the CategoryService, and returns a list of categories.
+     The third test method, testDeleteCategoryReturnsSuccess(), verifies that the deleteCategory() method in the CategoryController class
+     deletes a category using the CategoryService, and returns an HTTP status of OK along with a success message.
+     */
 
     private CategoryController categoryController;
 
@@ -32,14 +43,11 @@ class CategoryControllerTest {
 
     @Test
     void testSaveCategory() {
-        // Given
         Category category = new Category();
         category.setCatname("TestCategory");
 
-        // When
         ResponseEntity<?> response = categoryController.saveCategory(category);
 
-        // Then
         verify(categoryService, times(1)).save(category);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
         Assertions.assertEquals("{data=Category saved, status=success}", response.getBody().toString());
@@ -48,7 +56,6 @@ class CategoryControllerTest {
 
     @Test
     void testListAll() {
-        // Given
         Category category1 = new Category();
         Category category2 = new Category();
         List<Category> categories = new ArrayList<>();
@@ -56,10 +63,8 @@ class CategoryControllerTest {
         categories.add(category2);
         when(categoryService.listAll()).thenReturn(categories);
 
-        // When
         List<Category> response = categoryController.listall();
 
-        // Then
         verify(categoryService, times(1)).listAll();
         Assertions.assertEquals(categories.size(), response.size());
         Assertions.assertEquals(categories.get(0), response.get(0));
@@ -68,16 +73,13 @@ class CategoryControllerTest {
 
     @Test
     void testDeleteCategoryReturnsSuccess() {
-        // Given
         Category cat = new Category();
         cat.setCatname("Test");
         categoryService.save(cat);
         int catId = cat.getId();
 
-        // When
         ResponseEntity<?> response = categoryController.deleteCategory(catId);
 
-        // Then
         verify(categoryService, times(1)).deleteCategory(catId);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
         HashMap<String, Object> expected = new HashMap<>();
