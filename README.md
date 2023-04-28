@@ -101,6 +101,8 @@ Start the backend server before the frontend client.
     * For admin, the added product can added without price, product name and description. As long as it includes images, it is able to upload and does not make sense.
     * For admin, upload bulk image function is not working. It does not have the button of submit after adding the image
     * For admin, the send email function is not working.
+**Result**
+  * Jacoco Report in `COVERAGE/jacoco` (https://github.com/SP-Zeng/jhu-st-project/tree/main/COVERAGE/jacoco)
 
 
 
