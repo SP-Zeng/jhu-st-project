@@ -22,18 +22,18 @@ Start the backend server before the frontend client.
   11. Run `mvn spring-boot:run`.
   12. The backend server is running on [localhost:8080]().
 
-**Frontend**
+### **Frontend**
   1. Install [Node.js and npm](https://www.npmjs.com/get-npm)
   2. `cd frontend`.
   3. Run `npm install`.
   4. Run `ng serve`
   5. The frontend client is running on [localhost:4200]().
 
-**Note Before Testing**
+### **Note Before Testing**
   For the GUI testing and API tesing, we have some pre existing data stored in our local database. This is because the author's code has bug to login using duplicate registered login username. 
    * After you have both frontend and backend deployed, please run `jhu-st-project\ApiTesting\src\test\java\StFinalSetup.java` in the API testing environment to initialize the databases for testing.
 
-**Tests**
+### **Tests**
   1. JUnit for Whitebox unit on the Backend
   and Integration testing on the Backend in `\BACKEND\Home-Ecommerce-Backend\src\test\java\com\homecommerce\*` (It's a Gradle Project, in Intellij, import project folder as \BACKEND\Home-Ecommerce-Backend)
   2. JUnit for Blackbox unit on the Backend Services (DTOs and Models are all an Entity classes to model the databases so it's not tested and Controllers are endpoints tested in the API testing) in `\BACKEND\Home-Ecommerce-Backend\src\test\java\blackbox_testing\services\` (It's a Gradle Project, in Intellij, import project folder as \BACKEND\Home-Ecommerce-Backend)
@@ -43,7 +43,7 @@ Start the backend server before the frontend client.
   6. Angular unit testing in `\FRONTEND\src\app` (all files end with ".spec.ts"). In \Frontend, run `ng test`.
 
 
-**Faults after testing**
+### **Faults after testing**
 * Load Testing Bugs
   * Orders
     *  load testing starts to randomly send orders to /api/orders, the backend accepts it. Random orders including random numbers, random order dates, random customer information that does not even exist in the database. Author did not check for the validity of orders in any aspects.
@@ -103,7 +103,7 @@ Start the backend server before the frontend client.
     * For admin, the send email function is not working.
 
 
-**Result**
+### **Result**
   * Jacoco Report in `COVERAGE/jacoco` (https://github.com/SP-Zeng/jhu-st-project/tree/main/COVERAGE/jacoco)
 
 
