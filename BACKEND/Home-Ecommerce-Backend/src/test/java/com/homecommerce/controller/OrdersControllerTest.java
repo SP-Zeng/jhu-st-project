@@ -27,6 +27,17 @@ import com.homecommerce.services.OrderDetailService;
 import com.homecommerce.services.OrderService;
 
 public class OrdersControllerTest {
+    /**
+     This is a test class for the OrdersController class, which is responsible for handling HTTP requests and responses for the Order model.
+     The tests in this class ensure that the methods in the OrdersController class are working as intended.
+     It uses the Mockito framework to mock the OrderService, CustomerService, OrderDetailService, and CartService dependencies to test the behavior of the OrdersController methods.
+     The test methods in this class include:
+     testSave(): verifies that the save() method in the OrdersController class successfully places an order for a customer.
+     testConfirmOrder(): verifies that the confirmOrder() method in the OrdersController class successfully confirms an order.
+     testFindAllOrders(): verifies that the findAllOrders() method in the OrdersController class successfully retrieves all orders.
+     testFindAllOrdersByCustomerId(): verifies that the findAllOrdersByCustomerId() method in the OrdersController class successfully retrieves all orders for a given customer.
+     testFindOrderById(): verifies that the findOrderById() method in the OrdersController class successfully retrieves an order and its details by ID.
+     */
 
     @Mock
     private OrderService orderService;

@@ -30,20 +30,6 @@ public class StFinalAPICustomerTest {
     }
 
     /*
-    Testing if we have the "Ken" customer when we get
-     */
-    @Test
-    public void testCustomerAPIItemInfo(){
-        given()
-                .baseUri(url)
-                .when()
-                .get("/api/customers")
-                .then()
-                .statusCode(200)
-                .body("name", hasItem("Ken"));
-    }
-
-    /*
     Test the post function for the Customer api. It is working.
      */
     @Test
@@ -60,6 +46,22 @@ public class StFinalAPICustomerTest {
                 .assertThat()
                 .statusCode(200);
     }
+
+    /*
+    Testing if we have the "Ben" customer when we get
+     */
+    @Test
+    public void testCustomerAPIItemInfo(){
+        given()
+                .baseUri(url)
+                .when()
+                .get("/api/customers")
+                .then()
+                .statusCode(200)
+                .body("name", hasItem("Ben"));
+    }
+
+
 
     /*
     Test the put function for the Customer api. It is not working due to the authorization issue

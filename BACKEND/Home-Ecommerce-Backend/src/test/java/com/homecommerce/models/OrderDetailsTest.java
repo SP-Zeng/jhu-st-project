@@ -7,6 +7,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class OrderDetailsTest {
+    /**
+
+     This is a test class for the OrderDetails model which represents the details of a product within an order.
+     The tests in this class ensure that the OrderDetails class is working as intended.
+     The first test method, testGettersAndSetters(), verifies that the getters and setters for the OrderDetails class are working correctly
+     by setting values for each field and checking that they are retrieved correctly.
+     The second test method, testToString(), verifies that the toString() method in the OrderDetails class returns a non-null string.
+     This is important for debugging and logging purposes.
+     */
 
     private OrderDetails orderDetails;
     private Product product;

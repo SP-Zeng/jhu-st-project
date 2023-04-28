@@ -15,10 +15,25 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 class CartServiceTest {
+    /**
+     The CartServiceTest class contains JUnit tests for the CartService class.
+     The tests cover the following methods of the CartService class:
+     save(): tests saving a cart object to the repository.
+     findByuserid(): tests finding carts by user id.
+     updateQty(): tests updating the quantity of a cart item.
+     deleteItem(): tests deleting a cart item.
+     checkexist(): tests checking if a cart item exists.
+     clearCart(): tests clearing a customer's cart.
+     The tests use Mockito to mock the CartRepository and CustomerService dependencies of the CartService class.
+     The testCheckExistWithExistingItem() and testCheckExistWithNonExistingItem() tests are added to test the checkexist() method with
+     an existing and non-existing item respectively.
+     */
 
     @Mock
     private CartRepository cartRepository;
@@ -122,4 +137,44 @@ class CartServiceTest {
         verify(cartRepository, times(1)).deleteAll(anyList());
         verify(cartRepository, times(1)).findByCustomer(any(Customer.class));
     }
+    @Test
+    public void testCheckExistWithExistingItem() {
+        int customerId = 1;
+        int productId = 1;
+
+        Customer customer = new Customer();
+        customer.setId(customerId);
+
+        Product product = new Product();
+        product.setId(productId);
+
+        Cart cart = new Cart();
+        cart.setCustomer(customer);
+        cart.setProduct(product);
+
+        when(cartRepository.findByCustomerAndProduct(customer, product)).thenReturn(cart);
+
+        boolean result = cartService.checkexist(customer, product);
+
+        assertTrue(result, "checkexist should return true for existing cart item");
+    }
+
+    @Test
+    public void testCheckExistWithNonExistingItem() {
+        int customerId = 1;
+        int productId = 1;
+
+        Customer customer = new Customer();
+        customer.setId(customerId);
+
+        Product product = new Product();
+        product.setId(productId);
+
+        when(cartRepository.findByCustomerAndProduct(customer, product)).thenReturn(null);
+
+        boolean result = cartService.checkexist(customer, product);
+
+        assertFalse(result, "checkexist should return false for non-existing cart item");
+    }
+
 }

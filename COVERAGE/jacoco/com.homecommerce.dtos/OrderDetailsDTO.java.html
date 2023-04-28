@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderDetailsDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Ecommerce-Backend</a> &gt; <a href="index.source.html" class="el_package">com.homecommerce.dtos</a> &gt; <span class="el_source">OrderDetailsDTO.java</span></div><h1>OrderDetailsDTO.java</h1><pre class="source lang-java linenums">package com.homecommerce.dtos;
+
+import org.springframework.beans.BeanUtils;
+
+import com.homecommerce.models.OrderDetails;
+import com.homecommerce.models.Product;
+
+<span class="fc" id="L8">public class OrderDetailsDTO {</span>
+	
+	private int id;
+	private Product product;
+	private int qty;
+	public int getId() {
+<span class="fc" id="L14">		return id;</span>
+	}
+	public void setId(int id) {
+<span class="fc" id="L17">		this.id = id;</span>
+<span class="fc" id="L18">	}</span>
+	
+	
+	public Product getProduct() {
+<span class="fc" id="L22">		return product;</span>
+	}
+	public void setProduct(Product product) {
+<span class="fc" id="L25">		this.product = product;</span>
+<span class="fc" id="L26">	}</span>
+	public int getQty() {
+<span class="fc" id="L28">		return qty;</span>
+	}
+	public void setQty(int qty) {
+<span class="fc" id="L31">		this.qty = qty;</span>
+<span class="fc" id="L32">	}</span>
+
+	public static OrderDetailsDTO fromEntity(OrderDetails entity) {
+<span class="fc" id="L35">		OrderDetailsDTO dto = new OrderDetailsDTO();</span>
+<span class="fc" id="L36">		BeanUtils.copyProperties(entity, dto);		</span>
+<span class="fc" id="L37">		return dto;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

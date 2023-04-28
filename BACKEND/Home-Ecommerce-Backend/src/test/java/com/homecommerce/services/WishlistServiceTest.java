@@ -13,14 +13,22 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
 class WishlistServiceTest {
+    /**
+     This is a test class for the WishlistService. It tests the various methods of the WishlistService
+     class including save(), findByuserid(), deleteItem(), and checkexist(). The class uses Mockito for
+     mocking the WishlistRepository and CustomerService dependencies. The test methods create mock objects
+     and test various scenarios including saving a new wishlist, finding a wishlist by user ID, deleting
+     a wishlist item, and checking if a product exists in the wishlist for a given user.
+     */
 
     @Mock
     private WishlistRepository wishlistRepository;
@@ -79,21 +87,29 @@ class WishlistServiceTest {
     }
 
     @Test
-    void testCheckexist() {
+    public void testCheckExistWithExistingItem() {
         Customer customer = new Customer(1);
-        Product product = new Product();
-        product.setId(1);
-        Wishlist wishlist = new Wishlist();
-        wishlist.setCustomer(customer);
-        wishlist.setProduct(product);
+        Product product = new Product(1);
 
-        when(customerService.findById(anyInt())).thenReturn(customer);
-        when(wishlistRepository.findByCustomerAndProduct(any(Customer.class), any(Product.class))).thenReturn(wishlist);
+        when(customerService.findById(1)).thenReturn(customer);
+        when(wishlistRepository.findByCustomerAndProduct(customer, product)).thenReturn(new Wishlist());
 
         boolean result = wishlistService.checkexist(1, product);
 
-        assertEquals(true, result);
-        verify(wishlistRepository, times(1)).findByCustomerAndProduct(any(Customer.class), any(Product.class));
+        assertTrue(result, "checkexist should return true for existing item");
+    }
+
+    @Test
+    public void testCheckExistWithNonExistingItem() {
+        Customer customer = new Customer(1);
+        Product product = new Product(1);
+
+        when(customerService.findById(1)).thenReturn(customer);
+        when(wishlistRepository.findByCustomerAndProduct(customer, product)).thenReturn(null);
+
+        boolean result = wishlistService.checkexist(1, product);
+
+        assertFalse(result, "checkexist should return false for non-existing item");
     }
 }
 

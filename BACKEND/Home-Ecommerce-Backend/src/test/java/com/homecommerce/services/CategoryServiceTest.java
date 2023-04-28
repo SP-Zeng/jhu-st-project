@@ -18,6 +18,15 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
 class CategoryServiceTest {
+    /**
+     This class contains test cases for the CategoryService class.
+     It uses Mockito to mock the CategoryRepository and test the CategoryService methods.
+     The CategoryServiceTest class has four test cases:
+     testSave() - Tests the save() method of CategoryService by mocking the CategoryRepository and verifying that the save() method is called once.
+     testListAll() - Tests the listAll() method of CategoryService by mocking the CategoryRepository and verifying that it returns a list with the expected number of categories and that the categories in the list match the expected categories.
+     testFindById() - Tests the findById() method of CategoryService by mocking the CategoryRepository and verifying that it returns the expected category for a given ID.
+     testDeleteCategory() - Tests the deleteCategory() method of CategoryService by mocking the CategoryRepository and verifying that it calls the deleteById() method once.
+     */
 
     @Mock
     private CategoryRepository categoryRepository;

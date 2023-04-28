@@ -13,10 +13,20 @@ import java.util.Map;
 import static org.mockito.Mockito.*;
 
 public class AdminControllerTest {
+    /**
+
+     This class contains unit tests for the AdminController class. The purpose of these tests is to verify that the
+     AdminController correctly handles requests and responses related to admin authentication and profile management.
+     The testValidateUserReturnsSuccess() method tests that the validateUser() method returns a successful response when
+     given valid login credentials, and that the response contains the expected data.
+     The testValidateUserReturnsNotFound() method tests that the validateUser() method returns a "not found" response when
+     given invalid login credentials.
+     The testUpdateProfile() method tests that the updateProfile() method returns an OK response when given an Admin object,
+     and that the updateAdmin() method of the AdminService object is called with the correct argument.
+     */
 
     private AdminService adminService;
     private AdminController adminController;
-
     private LoginDTO loginDTO;
 
     @BeforeEach

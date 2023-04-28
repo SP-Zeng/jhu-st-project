@@ -27,6 +27,27 @@ import com.homecommerce.repos.ProductRepository;
 import com.homecommerce.utils.StorageService;
 
 class ProductServiceTest {
+    /**
+     This is a test class for the ProductService class which handles the business logic for the Product model.
+     The tests in this class ensure that the ProductService class is working as intended.
+     It uses the Mockito framework to mock the dependencies, and test the behavior of the ProductService methods.
+     The testAddProduct() method tests that the addProduct() method in the ProductService class saves a product
+     using the ProductRepository and StorageService, and verifies that the correct methods in those classes are called.
+     The testUpdateProduct() method tests that the updateProduct() method in the ProductService class updates a product
+     using the ProductRepository, and verifies that the correct method in that class is called.
+     The testDeleteProduct() method tests that the deleteProduct() method in the ProductService class deletes a product
+     using the ProductRepository, and verifies that the correct method in that class is called.
+     The testAllProducts() method tests that the allProducts() method in the ProductService class retrieves all products
+     using the ProductRepository, and verifies that the correct method in that class is called.
+     The testSearchProducts() method tests that the searchProducts() method in the ProductService class retrieves products
+     containing a search term in their pname or descr using the ProductRepository, and verifies that the correct method
+     in that class is called.
+     The testFindProductById() method tests that the findProductById() method in the ProductService class retrieves a
+     product by its id using the ProductRepository, and verifies that the correct method in that class is called.
+     The testCategoryProducts() method tests that the categoryProducts() method in the ProductService class retrieves
+     products for a category using the ProductRepository and CategoryService, and verifies that the correct methods in
+     those classes are called.
+     */
 
     @Mock
     private StorageService storageService;

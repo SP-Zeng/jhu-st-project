@@ -14,6 +14,20 @@ import com.homecommerce.models.Address;
 import com.homecommerce.repos.AddressRepository;
 
 public class AddressServiceTest {
+    /**
+
+     This is a test class for the AddressService class which handles the logic for the Address model.
+     The tests in this class ensure that the AddressService class is working as intended.
+     It uses the Mockito framework to mock the AddressRepository dependency, and test the behavior of the AddressService methods.
+     The first test method, testSaveAddress(), verifies that the saveAddress() method in the AddressService class saves an address
+     using the AddressRepository, and returns the saved address.
+     The second test method, testFindAddress(), verifies that the findAddress() method in the AddressService class retrieves an address
+     using the AddressRepository, and returns the found address.
+     The third test method, testUpdateAddress(), verifies that the updateAddress() method in the AddressService class updates an address
+     using the AddressRepository, and returns the updated address.
+     The fourth test method, testDeleteAddress(), verifies that the deleteAddress() method in the AddressService class deletes an address
+     using the AddressRepository, and returns nothing.
+     */
 
     private AddressRepository addressRepository;
     private AddressService addressService;

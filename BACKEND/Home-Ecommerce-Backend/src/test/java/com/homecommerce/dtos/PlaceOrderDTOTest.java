@@ -7,6 +7,14 @@ import com.homecommerce.models.Address;
 import com.homecommerce.models.Payment;
 
 public class PlaceOrderDTOTest {
+	/**
+	 This is a test class for the PlaceOrderDTO class which is a data transfer object for orders placed by customers.
+	 The tests in this class ensure that the getters and setters for the attributes in the PlaceOrderDTO class work correctly.
+	 The first test method, testGetSetPaymethod(), verifies that the setPaymethod() method in the PlaceOrderDTO class sets the payment method and the getPaymethod() method retrieves it.
+	 The second test method, testGetSetCustomerid(), verifies that the setCustomerid() method in the PlaceOrderDTO class sets the customer id and the getCustomerid() method retrieves it.
+	 The third test method, testGetSetAddress(), verifies that the setAddress() method in the PlaceOrderDTO class sets the address and the getAddress() method retrieves it.
+	 The fourth test method, testGetSetPayment(), verifies that the setPayment() method in the PlaceOrderDTO class sets the payment and the getPayment() method retrieves it.
+	 */
 
 	@Test
 	public void testGetSetPaymethod() {

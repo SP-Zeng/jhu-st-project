@@ -13,6 +13,11 @@ import com.homecommerce.models.OrderDetails;
 import com.homecommerce.models.Product;
 
 public class OrderDetailsDTOTest {
+	/**
+	 This is a test class for the OrderDetailsDTO class which tests the getters, setters, and the fromEntity() method.
+	 The fromEntity() method is tested by mocking an OrderDetails entity and setting its properties. The DTO's fromEntity()
+	 method is then called and the returned DTO is checked for its property values against the mocked entity.
+	 */
 
 	private OrderDetailsDTO orderDetailsDTO;
 
