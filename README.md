@@ -56,17 +56,17 @@ Start the backend server before the frontend client.
   * General: The program does not check for any validity/completeness of the Json / form-data body, you can basically include anything or miss anything in the Json body and the program will just set the missing parameter to null, which can be extremely insecure.
 
 * BlackBox Testing bugs
-* Address Service
-  * In address service: the author does not check about null object being as an address and accept it.
-* OrderDetailService
-  * In testFindById_InvalidId(), when an invalid id has been entered, the author will just throw an NoSuchElementException, which does not make any sense to terminate the program. A correct way would be to return null.
-* OrderService
-  * Similiar to failure in  testFindById_InvalidId(), in testConfirm_InvalidId(), when we try to confirm an invalid id number, the author will just throw NoSuchElementException.
-  * In testFindById_InvalidId(), when an invalid id has been entered, the author will just throw an NoSuchElementException, which does not make any sense to terminate the program. A correct way would be to return null.
-* Payment Service
-  * In testFindPaymentById_InvalidId(), when we try to find payment with an invalid id,  the author will just throw an NoSuchElementException.
-* Product Service
-  * In testFindProductById_InvalidId(), when we try to find product with an invalid id,  the author will just throw an NoSuchElementException.
+  * Address Service
+    * In address service: the author does not check about null object being as an address and accept it.
+  * OrderDetailService
+    * In testFindById_InvalidId(), when an invalid id has been entered, the author will just throw an NoSuchElementException, which does not make any sense to terminate the program. A correct way would be to return null.
+  * OrderService
+    * Similiar to failure in  testFindById_InvalidId(), in testConfirm_InvalidId(), when we try to confirm an invalid id number, the author will just throw NoSuchElementException.
+    * In testFindById_InvalidId(), when an invalid id has been entered, the author will just throw an NoSuchElementException, which does not make any sense to terminate the program. A correct way would be to return null.
+  * Payment Service
+    * In testFindPaymentById_InvalidId(), when we try to find payment with an invalid id,  the author will just throw an NoSuchElementException.
+  * Product Service
+    * In testFindProductById_InvalidId(), when we try to find product with an invalid id,  the author will just throw an NoSuchElementException.
 
 * Whitebox testing bugs
   * Admin
